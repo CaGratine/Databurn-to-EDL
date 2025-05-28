@@ -1,0 +1,38 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Environments
+venv/
+env/
+ENV/
+
+# Dossiers temporaires du projet
+frames/
+processed_frames/
+
+# Fichiers de sortie générés
+*.edl
+*.fcpxml
+
+# Fichiers vidéo (généralement trop volumineux pour GitHub)
+*.mp4
+*.mov
+*.avi
+
+# Fichiers de configuration spécifiques à l'utilisateur
+*.spec
+
+# Spécifique à Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+cd "d:\Users\Emile Cervia\Documents\Boite_a_idees\Databurn_to_EDL"
+git init
