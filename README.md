@@ -18,26 +18,35 @@ Ce projet permet d'extraire des informations de timecode (databurn) depuis des f
 
 ## Installation
 
+### 1. Installation des dépendances Python
+
 ```bash
-pip install opencv-python
-pip install pytesseract
+pip install -r requirements.txt
 ```
 
-Assurez-vous d'avoir [Tesseract OCR](https://github.com/tesseract-ocr/tesseract) et [FFmpeg](https://ffmpeg.org/download.html) installés sur votre système.
+### 2. Installation des dépendances externes obligatoires
+
+Ce projet nécessite deux logiciels externes qui doivent être installés séparément:
+
+- **FFmpeg**: [Télécharger FFmpeg](https://ffmpeg.org/download.html)
+  - Assurez-vous que FFmpeg est accessible depuis la ligne de commande (dans le PATH système)
+  
+- **Tesseract OCR**: [Télécharger Tesseract OCR](https://github.com/tesseract-ocr/tesseract)
+  - Assurez-vous que Tesseract est accessible depuis la ligne de commande (dans le PATH système)
+
+L'application vérifiera automatiquement au démarrage si ces dépendances sont correctement installées.
 
 ## Utilisation
 
-Pour utiliser le script en ligne de commande :
+Pour utiliser la version la plus récente avec interface graphique :
 
 ```python
-python "Databurn to edl Tesseract.py"
+python Databurn_to_edl_tesseract_parallele_GUI.py
 ```
 
-Ou lancez l'interface graphique :
-
-```python
-python Databurn_to_edl_GUI.py
-```
+Autres versions disponibles:
+- Version ligne de commande : `python "Databurn to edl Tesseract.py"`
+- Version GUI simple : `python Databurn_to_edl_GUI.py`
 
 ## Contribution
 
