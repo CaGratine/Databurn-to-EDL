@@ -29,6 +29,9 @@ processed_frames/
 # Fichiers de configuration spécifiques à l'utilisateur
 *.spec
 
+# Dossier des anciennes versions
+old/
+
 # Spécifique à Windows
 Thumbs.db
 ehthumbs.db

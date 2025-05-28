@@ -12,6 +12,24 @@ from tqdm import tqdm
 from multiprocessing import Pool
 from concurrent.futures import ThreadPoolExecutor
 
+def check_dependencies():
+    """Vérifie si les dépendances externes (FFmpeg et Tesseract) sont installées."""
+    missing_deps = []
+    
+    # Vérifier FFmpeg
+    try:
+        subprocess.run(['ffmpeg', '-version'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    except FileNotFoundError:
+        missing_deps.append("FFmpeg")
+    
+    # Vérifier Tesseract OCR
+    try:
+        subprocess.run(['tesseract', '--version'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    except FileNotFoundError:
+        missing_deps.append("Tesseract OCR")
+    
+    return missing_deps
+
 def log_message(message, log_widget):
     """Affiche un message dans la zone de log."""
     if log_widget is not None:
@@ -228,6 +246,21 @@ def cancel_video_processing():
         log_message("Annulation demandée par l'utilisateur.", log_text)
 
 if __name__ == "__main__":
+    # Vérifier les dépendances externes
+    missing_deps = check_dependencies()
+    if missing_deps:
+        messagebox.showerror(
+            "Dépendances manquantes", 
+            f"Les logiciels suivants doivent être installés et disponibles dans le PATH:\n\n"
+            f"{', '.join(missing_deps)}\n\n"
+            f"Veuillez les installer avant d'utiliser ce programme.\n"
+            f"Vous pouvez les télécharger depuis:\n"
+            f"- FFmpeg: https://ffmpeg.org/download.html\n"
+            f"- Tesseract OCR: https://github.com/tesseract-ocr/tesseract"
+        )
+        import sys
+        sys.exit(1)
+        
     # Création de la fenêtre principale
     root = tk.Tk()
     root.title("Databurn to EDL")
